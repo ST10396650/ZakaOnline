@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient_green"
+    android:orientation="vertical"
+    android:padding="16dp">
+    <!-- (Android Developers, 2025) -->
+    <!-- Top Bar -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="Back"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="View Transactions"
+            android:textColor="#AA8800"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+    <!-- (GeeksforGeeks, 2025) -->
+    <!-- Date Filter -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/startDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edittext_bg"
+            android:hint="Start Date"
+            android:padding="12dp"
+            android:textColor="#000" />
+
+
+        <Space
+            android:layout_width="8dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/endDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edittext_bg"
+            android:hint="End Date"
+            android:padding="12dp"
+            android:textColor="#000" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="189dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="E.g 25/04/2025"
+            android:textColor="#888888"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E.g 25/05/2025"
+            android:textColor="#888888"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/sortButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/primaryColour2"
+        android:text="Sort Transactions"
+        android:textColor="@color/zakaWhite"
+        android:textStyle="bold" />
+
+    <!-- (GeeksforGeeks, 2025) -->
+    <!-- RecyclerView Placeholder -->
+    <LinearLayout
+        android:id="@+id/sampleTransactions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical" />
+    <!-- Transactions List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/transactionsRecyclerView"
+        android:layout_width="374dp"
+        android:layout_height="421dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:overScrollMode="never" />
+
+
+</LinearLayout>
+    <!-- GeeksforGeeks. (n.d.). RecyclerView in Android with Example. Retrieved May 2, 2025, from https://www.geeksforgeeks.org/android-recyclerview/
+
+        Android Developers. (n.d.). Create dynamic lists with RecyclerView. Retrieved May 2, 2025, from https://developer.android.com/develop/ui/views/layout/recyclerview
+
+        Android Developers. (n.d.). Material Design Components. Retrieved May 2, 2025, from https://developer.android.com/guide/topics/ui/look-and-feel
+
+        GeeksforGeeks. (n.d.). Android ViewModel Architecture. Retrieved May 2, 2025, from https://www.geeksforgeeks.org/android-viewmodel-architecture/
+
+        Stack Overflow. (n.d.). How to create custom button in Android using XML Styles. Retrieved May 2, 2025, from https://stackoverflow.com/questions/18507351/how-to-create-custom-button-in-android-using-xml-styles-->

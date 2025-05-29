@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/transMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="16dp">
+    <!-- (Android Developers, 2025) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Back arrow and title -->
+
+        <!-- Category Name -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Create Custom Expense Category"
+                android:textColor="#C19602"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Category Name"
+            android:textColor="#004D00"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edCategoryName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter category name"
+            android:inputType="text"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="E.g., Utilities"
+            android:textColor="#888888"
+            android:textSize="12sp" />
+
+        <!-- (StackOverflow, 2025) -->
+        <!-- Budget Limit -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Budget Limit"
+            android:textColor="#004D00"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edCategoryLimit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ZAR"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter budget limit"
+            android:textColor="#888888"
+            android:textSize="12sp" />
+
+        <!-- Subcategory Header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Add Subcategories"
+            android:textColor="#C19602"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Subcategory Name -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Subcategory"
+            android:textColor="#004D00"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edSubCategoryName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter subcategory name"
+            android:inputType="text"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="E.g Grocery"
+            android:textColor="#888888"
+            android:textSize="12sp" />
+
+        <!-- Subcategory Budget Limit -->
+        <!-- (StackOverflow, 2025) -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Budget Limit"
+            android:textColor="#004D00"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edSubCategoryLimit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ZAR"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter subcategory budget limit"
+            android:textColor="#888888"
+            android:textSize="12sp" />
+
+        <!-- Recurring Expense -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Recurring Expense"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/primaryColour"
+                android:text="Yes"
+                android:textColor="#000000" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/primaryColour"
+                android:text="No"
+                android:textColor="#000000" />
+        </LinearLayout>
+
+        <!-- Create Subcategory Button -->
+        <Button
+            android:id="@+id/btnCreateSubCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="@color/primaryColour"
+            android:text="Create Subcategory"
+            android:textColor="#FFFFFF" />
+
+        <!-- Create Category Button -->
+        <Button
+            android:id="@+id/btnCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#003300"
+            android:text="Create Category"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+</ScrollView>
+    <!-- GeeksforGeeks. (n.d.). RecyclerView in Android with Example. Retrieved May 2, 2025, from https://www.geeksforgeeks.org/android-recyclerview/
+
+        Android Developers. (n.d.). Create dynamic lists with RecyclerView. Retrieved May 2, 2025, from https://developer.android.com/develop/ui/views/layout/recyclerview
+
+        Android Developers. (n.d.). Material Design Components. Retrieved May 2, 2025, from https://developer.android.com/guide/topics/ui/look-and-feel
+
+        GeeksforGeeks. (n.d.). Android ViewModel Architecture. Retrieved May 2, 2025, from https://www.geeksforgeeks.org/android-viewmodel-architecture/
+
+        Stack Overflow. (n.d.). How to create custom button in Android using XML Styles. Retrieved May 2, 2025, from https://stackoverflow.com/questions/18507351/how-to-create-custom-button-in-android-using-xml-styles-->

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/transMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+    <!-- (Android Developers, 2025) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Accounts"
+            android:textColor="#DAA520"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Subheader -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Digital Savings Accounts"
+            android:textColor="#004d00"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Allocate money to savings or expenses"
+            android:textColor="#888888"
+            android:textSize="14sp" />
+
+        <!-- Account type icons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <!-- (Stack Overflow, 2025) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/border_box"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_savings" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Savings"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/border_box"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_transactions" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Transactional"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Account Name -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Account Name"
+            android:textColor="#DAA520" />
+
+        <EditText
+            android:id="@+id/edAccountName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter account name"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter Unique Account name"
+            android:textColor="#888888"
+            android:textSize="12sp" />
+
+        <!-- Amount -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Amount"
+            android:textColor="#DAA520" />
+
+        <EditText
+            android:id="@+id/edAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="R ___"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:text="Specify the amount in ZAR"
+            android:textColor="#888888"
+            android:textSize="12sp" />
+
+        <!-- Bank Name -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Bank Name"
+            android:textColor="#DAA520" />
+
+        <EditText
+            android:id="@+id/edBankName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter name of bank"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E.g FNB"
+            android:textColor="#888888"
+            android:textSize="12sp" />
+
+        <!-- Type -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Type"
+            android:textColor="#DAA520" />
+
+        <EditText
+            android:id="@+id/edTypeOfAcc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter type of account"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E.g Savings"
+            android:textColor="#888888"
+            android:textSize="12sp" />
+
+        <!-- Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/border_button"
+                android:text="Cancel"
+                android:textColor="#004d00" />
+            <Button
+                android:id="@+id/btnSaveAcc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/primaryColour2"
+                android:text="Save"
+
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
+    <!-- GeeksforGeeks. (n.d.). RecyclerView in Android with Example. Retrieved May 2, 2025, from https://www.geeksforgeeks.org/android-recyclerview/
+
+    Android Developers. (n.d.). Create dynamic lists with RecyclerView. Retrieved May 2, 2025, from https://developer.android.com/develop/ui/views/layout/recyclerview
+
+    Android Developers. (n.d.). Material Design Components. Retrieved May 2, 2025, from https://developer.android.com/guide/topics/ui/look-and-feel
+
+    GeeksforGeeks. (n.d.). Android ViewModel Architecture. Retrieved May 2, 2025, from https://www.geeksforgeeks.org/android-viewmodel-architecture/
+
+    Stack Overflow. (n.d.). How to create custom button in Android using XML Styles. Retrieved May 2, 2025, from https://stackoverflow.com/questions/18507351/how-to-create-custom-button-in-android-using-xml-styles-->

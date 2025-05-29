@@ -1,0 +1,24 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Background Track -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/accentColour" /> <!-- light background -->
+            <corners android:radius="50dp" /> <!-- fully rounded -->
+        </shape>
+    </item>
+
+    <!-- Progress Fill -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="rectangle">
+                <gradient
+                    android:startColor="@color/primaryColour2"
+                    android:endColor="@color/accentColour2"
+                    android:angle="360"/>
+                <corners android:radius="50dp" /> <!-- same full rounding -->
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>

@@ -1,0 +1,42 @@
+<!-- subcategory_item.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
+    android:orientation="vertical"
+    android:background="@drawable/circl_yellow"
+    android:gravity="center"
+    android:layout_margin="8dp"
+    android:elevation="6dp">
+    <!-- (Android Developers, 2025) -->
+    <TextView
+        android:id="@+id/subcategoryName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subcategory"
+        android:textColor="#004d00"
+        android:textStyle="bold"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/subcategoryBudget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Budget : R0"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/subcategoryCurrent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current : R0"
+        android:textSize="14sp" />
+</LinearLayout>
+    <!-- GeeksforGeeks. (n.d.). RecyclerView in Android with Example. Retrieved May 2, 2025, from https://www.geeksforgeeks.org/android-recyclerview/
+
+        Android Developers. (n.d.). Create dynamic lists with RecyclerView. Retrieved May 2, 2025, from https://developer.android.com/develop/ui/views/layout/recyclerview
+
+        Android Developers. (n.d.). Material Design Components. Retrieved May 2, 2025, from https://developer.android.com/guide/topics/ui/look-and-feel
+
+        GeeksforGeeks. (n.d.). Android ViewModel Architecture. Retrieved May 2, 2025, from https://www.geeksforgeeks.org/android-viewmodel-architecture/
+
+        Stack Overflow. (n.d.). How to create custom button in Android using XML Styles. Retrieved May 2, 2025, from https://stackoverflow.com/questions/18507351/how-to-create-custom-button-in-android-using-xml-styles-->

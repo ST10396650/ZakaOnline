@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Views.Fragments.CategoryFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="ExtraText">
+
+            <!-- Top Bar -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:padding="16dp"
+                android:elevation="4dp">
+
+                <TextView
+                    android:id="@+id/pageTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Expense Categories"
+                    android:textColor="#AA8800"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.05" />
+            </RelativeLayout>
+
+            <!-- Main Categories Title -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Main Categories"
+                android:textColor="@color/zakaDarkGreen"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <!-- Category Card -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categoryRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/createCategory"
+                android:clickable="true"
+                android:background="@drawable/ic_edit_nav"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                />
+            <!-- Total Budget Text with Icon -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="25dp"
+
+
+                android:text="TOTAL BUDGET AMOUNT: R "
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/zakaDarkGreen" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

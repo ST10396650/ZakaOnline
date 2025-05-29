@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/zakaDarkGreen">
+    <!-- (Android Developers, 2025) -->
+    <LinearLayout
+        android:id="@+id/transMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primaryColour2"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="40dp">
+
+        <!-- Page Indicators (3 dots) -->
+
+        <!-- Decorative Gradient Circle -->
+        <!-- android:background="@drawable/circle_gradient"-->
+        <!-- App Name -->
+        <!-- (Android Developers, 2025) -->
+        <!-- Decorative Gradient Circle + Elephant -->
+        <FrameLayout
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="-50dp">
+
+            <!-- Gradient Circle -->
+
+            <!-- Elephant Vector inside the Circle -->
+
+            <View
+                android:id="@+id/gradient_circle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/circle_gradient"
+                android:contentDescription="Decorative gradient background" />
+
+            <ImageView
+                android:id="@+id/elephantImage"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:contentDescription="Elephant Icon"
+                android:scaleType="fitCenter"
+                android:src="@drawable/elephant_vector" />
+        </FrameLayout>
+
+        <!-- App Name -->
+        <TextView
+            android:id="@+id/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ZAKA"
+            android:textColor="@color/zakaYellow"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:id="@+id/slogan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wealth Starts Here"
+            android:textColor="@color/accentColour"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- (GeeksforGeeks, 2025) -->
+        <!-- Email Input -->
+        <EditText
+            android:id="@+id/edEmailUnameLogin"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:background="@drawable/border_input"
+            android:ems="10"
+            android:hint="Email Address or Username"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/edPasswordLogin"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:background="@drawable/border_input"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword" />
+        <!-- Password Input -->
+        <!-- Form Container -->
+        <LinearLayout
+            android:id="@+id/form_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/border_box"
+            android:contentDescription="Login form section"
+            android:elevation="8dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Login Button -->
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:backgroundTint="@color/primaryColour2"
+                android:text="login"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <!-- or divider -->
+            <TextView
+                android:id="@+id/or_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
+                android:text="or"
+                android:textColor="@android:color/black" />
+
+            <!-- Create Account Button -->
+            <Button
+                android:id="@+id/btnCreateAccount"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginVertical="8dp"
+                android:backgroundTint="@color/primaryColour"
+                android:contentDescription="Button to create a new account"
+                android:text="Create an Account"
+                android:textColor="@color/zakaWhite"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+</ScrollView>
+    <!-- GeeksforGeeks. (n.d.). RecyclerView in Android with Example. Retrieved May 2, 2025, from https://www.geeksforgeeks.org/android-recyclerview/
+
+        Android Developers. (n.d.). Create dynamic lists with RecyclerView. Retrieved May 2, 2025, from https://developer.android.com/develop/ui/views/layout/recyclerview
+
+        Android Developers. (n.d.). Material Design Components. Retrieved May 2, 2025, from https://developer.android.com/guide/topics/ui/look-and-feel
+
+        GeeksforGeeks. (n.d.). Android ViewModel Architecture. Retrieved May 2, 2025, from https://www.geeksforgeeks.org/android-viewmodel-architecture/
+
+        Stack Overflow. (n.d.). How to create custom button in Android using XML Styles. Retrieved May 2, 2025, from https://stackoverflow.com/questions/18507351/how-to-create-custom-button-in-android-using-xml-styles-->

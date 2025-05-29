@@ -1,0 +1,44 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/balance_card"
+    android:padding="12dp"
+    android:layout_marginBottom="8dp">
+    <!-- (Android Developers, 2025) -->
+    <TextView
+        android:id="@+id/transactionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transaction Title"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/transactionAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+R100"
+        android:textColor="#176B49"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/transactionDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="22/04/2024"
+        android:textColor="#777777"
+        android:textSize="12sp" />
+
+
+</LinearLayout>
+    <!-- GeeksforGeeks. (n.d.). RecyclerView in Android with Example. Retrieved May 2, 2025, from https://www.geeksforgeeks.org/android-recyclerview/
+
+        Android Developers. (n.d.). Create dynamic lists with RecyclerView. Retrieved May 2, 2025, from https://developer.android.com/develop/ui/views/layout/recyclerview
+
+        Android Developers. (n.d.). Material Design Components. Retrieved May 2, 2025, from https://developer.android.com/guide/topics/ui/look-and-feel
+
+        GeeksforGeeks. (n.d.). Android ViewModel Architecture. Retrieved May 2, 2025, from https://www.geeksforgeeks.org/android-viewmodel-architecture/
+
+        Stack Overflow. (n.d.). How to create custom button in Android using XML Styles. Retrieved May 2, 2025, from https://stackoverflow.com/questions/18507351/how-to-create-custom-button-in-android-using-xml-styles-->

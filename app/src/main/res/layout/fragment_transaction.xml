@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Views.Fragments.TransactionFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_gradient_green">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Top bar -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:elevation="4dp"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/pageTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Transactions"
+                        android:textColor="#AA8800"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_centerInParent="true" />
+                </RelativeLayout>
+
+                <!-- Buttons: Income, Expense, Transfer -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginTop="14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginBottom="0dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <!-- Income -->
+
+                        <!-- Expense -->
+
+                        <Button
+                            android:id="@+id/btnViewTransactions"
+                            android:layout_width="160dp"
+                            android:layout_height="80dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:backgroundTint="@color/primaryColour2"
+                            android:text="View Transactions"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/bAddNewTransactions"
+                            android:layout_width="160dp"
+                            android:layout_height="80dp"
+                            android:layout_marginTop="8dp"
+                            android:backgroundTint="@color/primaryColour2"
+                            android:text="Add New Transaction"
+                            android:textColor="#FFFFFF"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!-- Transfer (separate row) -->
+                    <Button
+                        android:layout_width="200dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="center_horizontal"
+                        android:backgroundTint="@color/primaryColour"
+                        android:elevation="6dp"
+                        android:text="⇄ Transfer"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
+                <!-- Recent Transactions -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recent Transactions"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="32dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recentTransRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <!-- View Receipts Button -->
+
+
+                <!-- Recently Uploaded Receipts -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recently Uploaded Receipts"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="32dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="12dp">
+
+                    <!-- Receipt Item -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/edittext_bg"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Transaction4.png"
+                            android:textColor="#444444"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_image" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/edittext_bg"
+                        android:padding="12dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Transaction3.png"
+                            android:textColor="#444444"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_image" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Add New Transaction -->
+
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <!-- Bottom Navigation (optional if you already have) -->
+    </RelativeLayout>
+
+</FrameLayout>

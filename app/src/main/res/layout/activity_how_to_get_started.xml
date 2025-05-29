@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/transMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background='@drawable/bg_gradient'
+    android:endColor="#c1c891"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:startColor="#e8e0b4">
+    <!-- (Android Developers, 2025) -->
+    <TextView
+        android:layout_width="178dp"
+        android:layout_height="226dp"
+        android:layout_marginBottom="24dp"
+        android:text="How\nTo\nGet\nStarted "
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Create Your Account"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cbAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:buttonTint="@color/primaryColour2"
+            android:clickable="false" />
+
+        <TextView
+            android:id="@+id/txtSetUpAccount"
+            android:layout_width="190dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
+            android:clickable="true"
+            android:text="  Set up Accounts"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cbBudgetGoalSetup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:buttonTint="@color/primaryColour2"
+            android:clickable="false" />
+
+        <TextView
+            android:id="@+id/txtSetUpBudget"
+            android:layout_width="wrap_content"
+            android:layout_height="41dp"
+            android:layout_gravity="center_vertical"
+            android:text="  Set up Budget Goals"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cbCategorySetUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:buttonTint="@color/primaryColour2"
+            android:clickable="false" />
+
+        <TextView
+            android:id="@+id/txtSetUpExCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="41dp"
+            android:layout_gravity="center_vertical"
+            android:text="  Set up Expense Category"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:text="Start Saving ZAKA →"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+</LinearLayout>
+    <!-- GeeksforGeeks. (n.d.). RecyclerView in Android with Example. Retrieved May 2, 2025, from https://www.geeksforgeeks.org/android-recyclerview/
+
+        Android Developers. (n.d.). Create dynamic lists with RecyclerView. Retrieved May 2, 2025, from https://developer.android.com/develop/ui/views/layout/recyclerview
+
+        Android Developers. (n.d.). Material Design Components. Retrieved May 2, 2025, from https://developer.android.com/guide/topics/ui/look-and-feel
+
+        GeeksforGeeks. (n.d.). Android ViewModel Architecture. Retrieved May 2, 2025, from https://www.geeksforgeeks.org/android-viewmodel-architecture/
+
+        Stack Overflow. (n.d.). How to create custom button in Android using XML Styles. Retrieved May 2, 2025, from https://stackoverflow.com/questions/18507351/how-to-create-custom-button-in-android-using-xml-styles-->

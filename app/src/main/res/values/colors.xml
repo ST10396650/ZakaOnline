@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="zakaDarkGreen">#002D00</color>
+    <color name="zakaYellow">#D4A200</color>
+    <color name="zakaGradientStart">#D4A200</color>
+    <color name="zakaGradientEnd">#003300</color>
+    <color name="zakaWhite">#FFFFFF</color>
+    <color name="zakaLightGray">#F0F0F0</color>
+    <color name="primaryColour">#1D5B0E</color><!-- Green -->
+    <color name="primaryColour2">#002F00</color><!-- Dark Green -->
+    <color name="accentColour2">#FADF8D</color><!-- Light Yellow -->
+    <color name="secondaryColour">#FFD700</color> <!-- Gold -->
+    <color name="accentColour">#FFFFFF</color> <!-- White -->
+    <color name="backgroundColour">#F5F5F5</color> <!-- Light Grey -->
+    <color name="textColorPrimary">#212121</color>
+    <color name="textColorSecondary">#757575</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+</resources>
