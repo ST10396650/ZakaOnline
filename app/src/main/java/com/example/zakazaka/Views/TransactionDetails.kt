@@ -63,9 +63,10 @@ class TransactionDetails : AppCompatActivity() {
                 // Set basic transaction details
                 findViewById<TextView>(R.id.txtTransDescription).text = transaction.description
                 findViewById<TextView>(R.id.txtTransAmount).text = "R${String.format("%.2f", transaction.amount)}"
-                findViewById<TextView>(R.id.txtDateOfTransaction).text = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(transaction.date)
-                findViewById<TextView>(R.id.txtType).text = transaction.type
-                findViewById<TextView>(R.id.txtRecurring).text = transaction.repeat
+                findViewById<TextView>(R.id.txtDateOfTransaction).text = "Date: ${SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(transaction.date)}"
+                findViewById<TextView>(R.id.txtType).text = "Type: ${transaction.type}"
+                findViewById<TextView>(R.id.txtRecurring).text = "Recurring: ${transaction.repeat}"
+
 
                 // Set image if available
                 if (!transaction.imagePath.isNullOrEmpty()) {
