@@ -1,4 +1,3 @@
-<!-- res/drawable/button_dark_green.xml -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <solid android:color="@color/primaryColour2" />

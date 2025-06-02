@@ -37,8 +37,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:orientation="horizontal">
-
+        android:orientation="horizontal"
+        >
         <EditText
             android:id="@+id/startDate"
             android:layout_width="0dp"
@@ -47,12 +47,11 @@
             android:background="@drawable/edittext_bg"
             android:hint="Start Date"
             android:padding="12dp"
-            android:textColor="#000" />
-
-
-        <Space
-            android:layout_width="8dp"
-            android:layout_height="wrap_content" />
+            android:textColor="#000"
+            android:focusable="false"
+            android:clickable="true"
+            android:inputType="none"
+            />
 
         <EditText
             android:id="@+id/endDate"
@@ -62,7 +61,11 @@
             android:background="@drawable/edittext_bg"
             android:hint="End Date"
             android:padding="12dp"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:focusable="false"
+            android:clickable="true"
+            android:inputType="none" />
+
 
     </LinearLayout>
 

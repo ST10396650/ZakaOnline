@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient_green">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Header -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:elevation="4dp"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Back"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Analytics"
+                android:textColor="#AA8800"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- Toggle View Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <Button
+                android:id="@+id/btnGraphicalView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="48dp"
+                android:text="Graphical View"
+                android:drawableTop="@drawable/ic_graph"
+                android:background="@drawable/btn_unselected"
+                android:textColor="@color/zakaDarkGreen"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btnListView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="48dp"
+                android:text="List View"
+                android:drawableTop="@drawable/ic_list"
+                android:background="@drawable/btn_selected"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Date Picker Filter -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <EditText
+                android:id="@+id/startDate"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="Start Date"
+                android:background="@drawable/edittext_bg"
+                android:padding="12dp"
+                android:textColor="#000"
+                android:focusable="false"
+                android:clickable="true"
+                android:inputType="none" />
+
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/endDate"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="End Date"
+                android:background="@drawable/edittext_bg"
+                android:padding="12dp"
+                android:textColor="#000"
+                android:focusable="false"
+                android:clickable="true"
+                android:inputType="none" />
+        </LinearLayout>
+
+        <!-- Summary Heading -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View of Home Budget: Sep 25 - Oct 25"
+            android:textAlignment="center"
+            android:textColor="#AA8800"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:textSize="14sp" />
+
+        <!-- Summary Cards -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/box_background"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Food"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="R450"
+                    android:textColor="#003300" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/box_background"
+                android:padding="8dp"
+                android:layout_marginStart="4dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Leisure"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="R180"
+                    android:textColor="#003300" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/box_background"
+                android:padding="8dp"
+                android:layout_marginStart="4dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Transport"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="R320"
+                    android:textColor="#003300" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Recent Transactions Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recent Transactions"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp" />
+
+        <!-- RecyclerView for transaction list -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listTransactionRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never" />
+
+        <!-- Download PDF Button -->
+        <Button
+            android:id="@+id/btnDownloadPdf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Download PDF"
+            android:background="@drawable/button_dark_green"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp" />
+
+    </LinearLayout>
+</ScrollView>
