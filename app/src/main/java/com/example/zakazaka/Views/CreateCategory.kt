@@ -69,7 +69,7 @@ class CreateCategory : AppCompatActivity() {
         subCategoryViewModel = ViewModelProvider(this, factory)[SubCategoryViewModel::class.java]
 
         val btnCreateCategory = findViewById<Button>(R.id.btnCategory)
-        val btnCreateSubCategory = findViewById<Button>(R.id.btnCreateSubCategory)
+
 
 
         //use the button click listener events to call the methods repsonsible for adding a new category
@@ -83,17 +83,7 @@ class CreateCategory : AppCompatActivity() {
                 setupCategoryCreation(edCategoryName, edBudgetLimit.toDouble())
             }
         }
-        btnCreateSubCategory.setOnClickListener {
-            val edSubCategoryName = findViewById<EditText>(R.id.edSubCategoryName).text.toString()
-            val edSubCategoryBudgetLimit = findViewById<EditText>(R.id.edSubCategoryLimit).text.toString()
-            //val edSubCategoryDescription = findViewById<EditText>(R.id.edDescription)
-            if (edSubCategoryName.isEmpty() || edSubCategoryBudgetLimit.isEmpty()) {
-                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
 
-            } else {
-                setupSubCategoryCreation(edSubCategoryName, edSubCategoryBudgetLimit.toDouble())
-            }
-        }
     }
 
 
@@ -142,49 +132,49 @@ class CreateCategory : AppCompatActivity() {
 
 
 
-    private fun setupSubCategoryCreation(subCategoryName: String, budgetLimit: Double) {
-
-        try {
-            val sharedPrefs = getSharedPreferences("BudgetPrefs", MODE_PRIVATE)
-            val categoryId = sharedPrefs.getString("CREATED_CATEGORY_ID", null)
-
-            if (categoryId == null) {
-                Toast.makeText(this, "Category ID not found", Toast.LENGTH_SHORT).show()
-                return
-            }
-
-            val newSubCategory = SubCategoryEntity(
-                name = subCategoryName,
-                description = "",
-                budgetLimit = budgetLimit,
-                currentAmount = 0.0,
-                categoryID = categoryId
-            )
-
-            val createdSubCategoryLiveData = subCategoryViewModel.createSubCategory(newSubCategory)
-            createdSubCategoryLiveData.observe(this) { subCategory ->
-                if (subCategory != null) {
-                    Toast.makeText(this, "Subcategory created successfully", Toast.LENGTH_SHORT).show()
-                    // Save the categoryID as String
-
-                    howtoViewModel.isHowtoCompleted(firebaseUserId!!, this) { completed ->
-                        val intent = if (!completed) {
-                            Intent(this, Dashboard::class.java)
-                        } else {
-                            Intent(this, Dashboard::class.java)
-                        }
-                        intent.putExtra("USER_ID", firebaseUserId)
-                        startActivity(intent)
-                    }
-                } else {
-                    Toast.makeText(this, "Failed to create subcategory", Toast.LENGTH_SHORT).show()
-                }
-                createdSubCategoryLiveData.removeObservers(this)
-            }
-
-        } catch (e: NumberFormatException) {
-            Toast.makeText(this, "Please enter a valid budget limit", Toast.LENGTH_SHORT).show()
-        }
-    }
+//    private fun setupSubCategoryCreation(subCategoryName: String, budgetLimit: Double) {
+//
+//        try {
+//            val sharedPrefs = getSharedPreferences("BudgetPrefs", MODE_PRIVATE)
+//            val categoryId = sharedPrefs.getString("CREATED_CATEGORY_ID", null)
+//
+//            if (categoryId == null) {
+//                Toast.makeText(this, "Category ID not found", Toast.LENGTH_SHORT).show()
+//                return
+//            }
+//
+//            val newSubCategory = SubCategoryEntity(
+//                name = subCategoryName,
+//                description = "",
+//                budgetLimit = budgetLimit,
+//                currentAmount = 0.0,
+//                categoryID = categoryId
+//            )
+//
+//            val createdSubCategoryLiveData = subCategoryViewModel.createSubCategory(newSubCategory)
+//            createdSubCategoryLiveData.observe(this) { subCategory ->
+//                if (subCategory != null) {
+//                    Toast.makeText(this, "Subcategory created successfully", Toast.LENGTH_SHORT).show()
+//                    // Save the categoryID as String
+//
+//                    howtoViewModel.isHowtoCompleted(firebaseUserId!!, this) { completed ->
+//                        val intent = if (!completed) {
+//                            Intent(this, Dashboard::class.java)
+//                        } else {
+//                            Intent(this, Dashboard::class.java)
+//                        }
+//                        intent.putExtra("USER_ID", firebaseUserId)
+//                        startActivity(intent)
+//                    }
+//                } else {
+//                    Toast.makeText(this, "Failed to create subcategory", Toast.LENGTH_SHORT).show()
+//                }
+//                createdSubCategoryLiveData.removeObservers(this)
+//            }
+//
+//        } catch (e: NumberFormatException) {
+//            Toast.makeText(this, "Please enter a valid budget limit", Toast.LENGTH_SHORT).show()
+//        }
+//    }
 }
 
