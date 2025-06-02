@@ -6,6 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.DatePicker
+import android.widget.EditText
 import com.example.zakazaka.R
 import com.example.zakazaka.Repository.AccountRepository
 import com.example.zakazaka.Repository.BudgetGoalRepository
@@ -21,14 +24,14 @@ import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import java.util.Date
 
 class AnalyticsFragment : Fragment() {
     lateinit var barGraph : BarChart
     val analyticsViewModel = AnalyticsViewModel(
-        budgetGoalRepository = TODO(),
-        categoryRepository = TODO(),
-        subCategoryRepository = TODO(),
-        transactionRepository = TODO()
+        categoryRepository = CategoryRepository(),
+        subCategoryRepository = SubCategoryRepository(),
+        transactionRepository = TransactionRepository()
     )
 
     override fun onCreateView(
@@ -42,7 +45,7 @@ class AnalyticsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
-
+        barGraph = view.findViewById(R.id.barChart)
         val factory = ViewModelFactory(
             UserRepository(),
             AccountRepository(),
@@ -51,15 +54,58 @@ class AnalyticsFragment : Fragment() {
             SubCategoryRepository(),
             TransactionRepository()
         )
-
         val sharedPref = requireContext().getSharedPreferences("BudgetAppPrefs", MODE_PRIVATE)
         val userId = sharedPref.getString("LOGGED_USER_ID", null)
+
+        val edStart = view.findViewById<EditText>(R.id.startDateText)
+        val edEnd = view.findViewById<EditText>(R.id.endDateText)
+        val startDatePicker = view.findViewById<DatePicker>(R.id.startDate)
+        val endDatePicker = view.findViewById<DatePicker>(R.id.endDate)
+
+        edStart.setOnClickListener {
+            startDatePicker.visibility = View.VISIBLE
+        }
+        startDatePicker.setOnClickListener {
+            edStart.setText("${startDatePicker.dayOfMonth}/${startDatePicker.month}/${startDatePicker.year}")
+        }
+        edEnd.setOnClickListener {
+            endDatePicker.visibility = View.VISIBLE
+        }
+        endDatePicker.setOnClickListener {
+            edEnd.setText("${startDatePicker.dayOfMonth}/${startDatePicker.month}/${startDatePicker.year}")
+        }
+
+        val startYear = startDatePicker.year
+        val startMonth = startDatePicker.month
+        val startDay = startDatePicker.dayOfMonth
+        val startDateVal  =Date(startYear,startMonth,startDay)
+
+        val endYear = endDatePicker.year
+        val endMonth = endDatePicker.month
+        val endDay = endDatePicker.dayOfMonth
+        val endDateVal  =Date(endYear,endMonth,endDay)
+
         if (userId != null) {
+        val btnApply = view.findViewById<Button>(R.id.btnApplyFilter)
+        btnApply.setOnClickListener {
+            startDatePicker.visibility = View.GONE
+            endDatePicker.visibility = View.GONE
+            analyticsViewModel.filterAnalyticsData(startDateVal,endDateVal,userId).observe(viewLifecycleOwner) { analyticsData ->
+                if (analyticsData.isNotEmpty()) {
+                    val categoryLabels = analyticsData.map { it.categoryName }
+                    val categoryAmounts = analyticsData.map { it.totalAmount }
+                    setUpBarGraph(categoryLabels,categoryAmounts)
+                }
+            }
+        }
+
+
+
             analyticsViewModel.getDefaultAnalyticsData(userId).observe(viewLifecycleOwner) {analyticsData ->
                 if (analyticsData.isNotEmpty()) {
                     val categoryLabels = analyticsData.map { it.categoryName }
                     val categoryAmounts = analyticsData.map { it.totalAmount }
-                    barGraph = view.findViewById(R.id.barChart)
+
                     setUpBarGraph(categoryLabels,categoryAmounts)
                 }
             }
@@ -79,7 +125,6 @@ class AnalyticsFragment : Fragment() {
         xAxis.setDrawGridLines(false)
         xAxis.granularity = 1f
         xAxis.labelCount = label.size
-        xAxis.labelRotationAngle = -45f
 
         barGraph.invalidate()
     }

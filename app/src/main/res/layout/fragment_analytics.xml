@@ -38,7 +38,7 @@
             android:text="Download PDF"
             android:textColor="@android:color/white" />
 
-        <!-- View Toggle Buttons -->
+        <!-- View Toggle Buttons
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
                 android:textColor="@android:color/white"
                 android:textStyle="bold"
                 android:layout_marginStart="8dp" />
-        </LinearLayout>
+        </LinearLayout>-->
 
         <!-- Date Picker Filter -->
         <LinearLayout
@@ -86,7 +86,7 @@
                 android:hint="Start Date"
                 android:background="@drawable/edittext_bg"
                 android:padding="12dp"
-                android:textColor="#000"
+                android:textColor="@color/zakaDarkGreen"
                 android:focusable="false"
                 android:clickable="true"
                 android:inputType="none" />
@@ -102,7 +102,7 @@
                 android:hint="End Date"
                 android:background="@drawable/edittext_bg"
                 android:padding="12dp"
-                android:textColor="#000"
+                android:textColor="@color/zakaDarkGreen"
                 android:focusable="false"
                 android:clickable="true"
                 android:inputType="none" />
@@ -120,12 +120,13 @@
             android:layout_width="80dp"
             android:layout_weight="1"
             android:layout_height="280dp"
-            android:inputType="none" />
+            />
             <Space
                 android:layout_width="8dp"
                 android:layout_height="wrap_content" />
             <DatePicker
                 android:visibility="gone"
+                android:forceHasOverlappingRendering="true"
                 android:calendarTextColor="@color/zakaDarkGreen"
                 android:id="@+id/endDate"
                 android:layout_width="80dp"
@@ -137,21 +138,23 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-        <Button
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="Apply Filters"
-            android:backgroundTint="@color/zakaDarkGreen"
-            />
+
+            <Button
+                android:id="@+id/btnApplyFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/zakaDarkGreen"
+                android:text="Apply Filters" />
             <Space
                 android:layout_width="10dp"
                 android:layout_height="0dp"/>
+
             <Button
-                android:layout_height="wrap_content"
+                android:id="@+id/btnReset"
                 android:layout_width="wrap_content"
-                android:text="Reset"
+                android:layout_height="wrap_content"
                 android:backgroundTint="@color/primaryColour"
-                />
+                android:text="Reset" />
 
         </LinearLayout>
 
