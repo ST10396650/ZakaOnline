@@ -40,8 +40,9 @@
             <ImageView
                 android:layout_width="28dp"
                 android:layout_height="28dp"
+                android:text="Edit"
                 android:layout_alignParentEnd="true"
-                android:src="@drawable/ic_edit" />
+                android:src="@drawable/border_button" />
         </RelativeLayout>
 
         <!-- Digital Savings Header -->
@@ -161,9 +162,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:backgroundTint="@color/primaryColour"
+            android:backgroundTint="@color/primaryColour2"
             android:text="Add Acoount"
-            android:textColor="#000000"
+            android:textColor="@color/accentColour"
             android:textStyle="bold" />
 
         <!-- Total Expenses Section -->

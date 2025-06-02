@@ -1,0 +1,255 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient_green">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:elevation="4dp"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Back"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Analytics"
+                android:textColor="#AA8800"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+        <!-- Download PDF Button -->
+        <Button
+            android:id="@+id/btnDownloadPdf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Download PDF"
+            android:textColor="@android:color/white"
+            android:background="@drawable/button_dark_green"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp" />
+
+        <!-- View Toggle Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <Button
+                android:id="@+id/btnGraphicalView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="48dp"
+                android:text="Graphical View"
+                android:drawableTop="@drawable/ic_graph"
+                android:background="@drawable/btn_unselected"
+                android:textColor="@color/zakaDarkGreen"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnListView"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="48dp"
+                android:text="List View"
+                android:drawableTop="@drawable/ic_list"
+                android:background="@drawable/btn_selected"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- Date Picker Filter -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <EditText
+                android:id="@+id/startDate"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="Start Date"
+                android:background="@drawable/edittext_bg"
+                android:padding="12dp"
+                android:textColor="#000"
+                android:focusable="false"
+                android:clickable="true"
+                android:inputType="none" />
+
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/endDate"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:hint="End Date"
+                android:background="@drawable/edittext_bg"
+                android:padding="12dp"
+                android:textColor="#000"
+                android:focusable="false"
+                android:clickable="true"
+                android:inputType="none" />
+        </LinearLayout>
+
+        <!-- Toggle Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="12dp">
+
+            <ToggleButton
+                android:id="@+id/toggleMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textOn="Main"
+                android:textOff="Main"
+                android:checked="true"
+                android:backgroundTint="@color/zakaDarkGreen"
+                android:textColor="@android:color/white" />
+
+            <Space android:layout_width="8dp" android:layout_height="wrap_content" />
+
+            <ToggleButton
+                android:id="@+id/toggleSub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textOn="Sub"
+                android:textOff="Sub"
+                android:backgroundTint="@color/accentColour2"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+        <!-- Budget View Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Graphical View of Home Budget\nSep 25 - Oct 25"
+            android:textAlignment="center"
+            android:textColor="@color/primaryColour2"
+            android:textSize="14sp"
+            android:layout_marginTop="12dp" />
+
+        <!-- Summary Category Boxes -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:weightSum="3">
+
+            <!-- Box 1 -->
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_yellow_shadow"
+                android:padding="12dp"
+                android:layout_marginEnd="4dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Home"
+                    android:textStyle="bold"
+                    android:textColor="@color/zakaDarkGreen"
+                     />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="R500"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <!-- Box 2 -->
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_yellow_shadow"
+                android:padding="12dp"
+                android:layout_marginHorizontal="4dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Leisure"
+                    android:textStyle="bold"
+                    android:textColor="@color/zakaDarkGreen" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="R300"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <!-- Box 3 -->
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_yellow_shadow"
+                android:padding="12dp"
+                android:layout_marginStart="4dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Utilities"
+                    android:textStyle="bold"
+                    android:textColor="@color/zakaDarkGreen" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="R80"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Transactions Section Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Transactions: Sep 25 - Oct 25"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/zakaDarkGreen" />
+
+        <!-- Dynamic Transaction List -->
+        <LinearLayout
+            android:id="@+id/transactionList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+</ScrollView>
+

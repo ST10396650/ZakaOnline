@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -107,7 +108,7 @@
             <Button
                 android:id="@+id/btnAddSubCategory"
                 android:layout_width="55dp"
-                android:layout_height="47dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/green_circle"
                 android:text="+"
@@ -163,23 +164,31 @@
                 <EditText
                     android:id="@+id/edStart"
                     android:layout_width="150dp"
-                    android:layout_marginStart="10dp"
                     android:layout_height="wrap_content"
-                    android:hint="Start Date(dd/MM/yyyy)"
-                    android:textSize="12sp" />
+                    android:layout_marginStart="10dp"
+                    android:hint="Start Date (dd/MM/yyyy)"
+                    android:minHeight="48dp"
+                    android:textSize="12sp"
+                    android:focusable="false"
+                    android:clickable="true" />
+
                 <TextView
                     android:text="To"
                     android:layout_marginRight="20dp"
                     android:layout_marginLeft="20dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
 
                 <EditText
                     android:id="@+id/edEnd"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:hint="End Date(dd/MM/yyyy)"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:hint="End Date (dd/MM/yyyy)"
+                    android:minHeight="48dp"
                     android:textSize="12sp" />
+
             </LinearLayout>
             <Button
                 android:id="@+id/btnCheckAmtBetweenDates"
