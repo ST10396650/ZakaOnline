@@ -24,6 +24,7 @@ import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import java.util.Calendar
 import java.util.Date
 
 class AnalyticsFragment : Fragment() {
@@ -64,42 +65,68 @@ class AnalyticsFragment : Fragment() {
 
         edStart.setOnClickListener {
             startDatePicker.visibility = View.VISIBLE
+            endDatePicker.visibility = View.GONE
         }
-        startDatePicker.setOnClickListener {
-            edStart.setText("${startDatePicker.dayOfMonth}/${startDatePicker.month}/${startDatePicker.year}")
+        startDatePicker.setOnDateChangedListener {_,year,month,dayOfMonth ->
+           val selectedDate = "${month+1}/$dayOfMonth/$year"
+            edStart.setText(selectedDate)
         }
         edEnd.setOnClickListener {
+            startDatePicker.visibility = View.GONE
             endDatePicker.visibility = View.VISIBLE
         }
-        endDatePicker.setOnClickListener {
-            edEnd.setText("${startDatePicker.dayOfMonth}/${startDatePicker.month}/${startDatePicker.year}")
+        endDatePicker.setOnDateChangedListener {_,year,month,dayOfMonth ->
+           val selectedDate = "${month+1}/$dayOfMonth/$year"
+            edEnd.setText(selectedDate)
         }
 
-        val startYear = startDatePicker.year
-        val startMonth = startDatePicker.month
-        val startDay = startDatePicker.dayOfMonth
-        val startDateVal  =Date(startYear,startMonth,startDay)
 
-        val endYear = endDatePicker.year
-        val endMonth = endDatePicker.month
-        val endDay = endDatePicker.dayOfMonth
-        val endDateVal  =Date(endYear,endMonth,endDay)
 
         if (userId != null) {
+        val btnDownload = view.findViewById<Button>(R.id.btnDownloadPdf)
+        btnDownload.setOnClickListener{
+            analyticsViewModel.downloadAnalyticsData(barGraph,requireContext())
+        }
+
+
         val btnApply = view.findViewById<Button>(R.id.btnApplyFilter)
         btnApply.setOnClickListener {
+            val startYear = startDatePicker.year
+            val startMonth = startDatePicker.month
+            val startDay = startDatePicker.dayOfMonth
+            val startDateVal  = getDatePicker(startYear,startMonth,startDay)
+
+            val endYear = endDatePicker.year
+            val endMonth = endDatePicker.month
+            val endDay = endDatePicker.dayOfMonth
+            val endDateVal  =getDatePicker(endYear,endMonth,endDay)
+
+
+
             startDatePicker.visibility = View.GONE
             endDatePicker.visibility = View.GONE
             analyticsViewModel.filterAnalyticsData(startDateVal,endDateVal,userId).observe(viewLifecycleOwner) { analyticsData ->
-                if (analyticsData.isNotEmpty()) {
+                if (!analyticsData.isNullOrEmpty()) {
                     val categoryLabels = analyticsData.map { it.categoryName }
                     val categoryAmounts = analyticsData.map { it.totalAmount }
-                    setUpBarGraph(categoryLabels,categoryAmounts)
+                        setUpBarGraph(categoryLabels,categoryAmounts)
                 }
             }
         }
+            //resets to default values
+            val resetBtn = view.findViewById<Button>(R.id.btnReset)
+            resetBtn.setOnClickListener {
+                startDatePicker.visibility = View.GONE
+                endDatePicker.visibility = View.GONE
+                analyticsViewModel.getDefaultAnalyticsData(userId).observe(viewLifecycleOwner) {analyticsData ->
+                    if (analyticsData.isNotEmpty()) {
+                        val categoryLabels = analyticsData.map { it.categoryName }
+                        val categoryAmounts = analyticsData.map { it.totalAmount }
 
-
+                        setUpBarGraph(categoryLabels,categoryAmounts)
+                    }
+                }
+            }
 
             analyticsViewModel.getDefaultAnalyticsData(userId).observe(viewLifecycleOwner) {analyticsData ->
                 if (analyticsData.isNotEmpty()) {
@@ -109,7 +136,17 @@ class AnalyticsFragment : Fragment() {
                     setUpBarGraph(categoryLabels,categoryAmounts)
                 }
             }
+
+
         }
+    }
+    fun getDatePicker(year: Int, month: Int, day: Int): Date {
+        val caledar = Calendar.getInstance()
+        caledar.set(Calendar.YEAR,year)
+        caledar.set(Calendar.MONTH,month)
+        caledar.set(Calendar.DAY_OF_MONTH,day)
+       return caledar.time
+
     }
     fun setUpBarGraph(label : List<String>, amounts : List<Double>){
         val entries = amounts.mapIndexed { index, amount ->

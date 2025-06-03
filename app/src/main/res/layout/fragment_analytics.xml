@@ -109,32 +109,35 @@
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <DatePicker
-            android:id="@+id/startDate"
-            android:visibility="gone"
-            android:calendarTextColor="@color/zakaDarkGreen"
-            android:layout_width="80dp"
-            android:layout_weight="1"
-            android:layout_height="280dp"
-            />
+            <DatePicker
+                android:id="@+id/startDate"
+                android:layout_width="80dp"
+                android:layout_height="280dp"
+                android:layout_weight="1"
+                android:calendarTextColor="@color/zakaDarkGreen"
+                android:visibility="gone" />
+
             <Space
                 android:layout_width="8dp"
                 android:layout_height="wrap_content" />
+
             <DatePicker
-                android:visibility="gone"
-                android:forceHasOverlappingRendering="true"
-                android:calendarTextColor="@color/zakaDarkGreen"
                 android:id="@+id/endDate"
                 android:layout_width="80dp"
+                android:layout_height="280dp"
                 android:layout_weight="1"
-                android:layout_height="280dp"/>
+                android:calendarTextColor="@color/zakaDarkGreen"
+                android:forceHasOverlappingRendering="true"
+                android:visibility="gone" />
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
