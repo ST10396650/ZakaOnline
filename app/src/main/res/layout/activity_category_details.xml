@@ -26,6 +26,14 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
+
+                <ImageView
+                    android:id="@+id/expenseSummaryBackBtn"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="Back"
+                    android:src="@drawable/ic_back" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -107,12 +115,13 @@
 
             <Button
                 android:id="@+id/btnAddSubCategory"
-                android:layout_width="55dp"
+                android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:layout_marginTop="16dp"
-                android:background="@drawable/green_circle"
-                android:text="+"
-                android:textSize="20sp" />
+                android:textColor="@color/white"
+                android:backgroundTint="@color/zakaDarkGreen"
+                android:text="Add Subcategory"
+                android:textSize="18sp" />
             <EditText
                 android:id="@+id/edAddsubCatName"
                 android:hint="Subcategory Name"

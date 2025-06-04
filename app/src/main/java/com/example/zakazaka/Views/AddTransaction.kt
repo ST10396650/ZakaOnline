@@ -85,6 +85,10 @@ class AddTransaction : AppCompatActivity() {
             finish()
             return
         }
+        val backBtn = findViewById<ImageView>(R.id.AddTransactionBackBtn)
+        backBtn.setOnClickListener {
+            finish()
+        }
 
         // Initialize ViewModels
         transactionViewModel = ViewModelProvider(this, factory)[TransactionViewModel::class.java]

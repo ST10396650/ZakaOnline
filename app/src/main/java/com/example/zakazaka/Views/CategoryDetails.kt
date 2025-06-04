@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -57,6 +58,10 @@ class CategoryDetails : AppCompatActivity() {
         val sharedPref = getSharedPreferences("BudgetAppPrefs", MODE_PRIVATE)
         val userId = sharedPref.getString("LOGGED_USER_ID", null) // Changed to getString
         val categoryID = intent.getStringExtra("categoryID") ?: "" // Changed to getStringExtra
+        val btnBackBtn = findViewById<ImageView>(R.id.expenseSummaryBackBtn)
+        btnBackBtn.setOnClickListener {
+            finish()
+        }
 
         if (userId == null) {
             Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show()
@@ -71,9 +76,9 @@ class CategoryDetails : AppCompatActivity() {
         categoryViewModel.getCategoryById(categoryID) { category ->
             if(category != null){
                 findViewById<TextView>(R.id.txtCategoryText).text = category.name
-                findViewById<TextView>(R.id.txtCategoryBudget).text = "Budget : ${category.budgetLimit}"
-                findViewById<TextView>(R.id.txtCategoryCurrentAmt).text = "Current : ${category.currentAmount}"
-                findViewById<TextView>(R.id.txtRemainingBalance).text = "Remaining Balance : ${category.budgetLimit - category.currentAmount}"
+                findViewById<TextView>(R.id.txtCategoryBudget).text = "Budget : R${category.budgetLimit}"
+                findViewById<TextView>(R.id.txtCategoryCurrentAmt).text = "Current : R${category.currentAmount}"
+                findViewById<TextView>(R.id.txtRemainingBalance).text = "Remaining Balance : R${category.budgetLimit - category.currentAmount}"
             } else {
                 // Add debug logging to see if category is null
                 Log.d("CategoryDetails", "Category is null for ID: $categoryID")

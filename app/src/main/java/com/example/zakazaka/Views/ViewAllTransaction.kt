@@ -2,8 +2,11 @@ package com.example.zakazaka.Views
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import android.widget.DatePicker
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +27,8 @@ import com.example.zakazaka.Repository.UserRepository
 import com.example.zakazaka.ViewModels.TransactionViewModel
 import com.example.zakazaka.ViewModels.ViewModelFactory
 import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Date
 import java.util.Locale
 
 class ViewAllTransaction : AppCompatActivity() {
@@ -60,6 +65,10 @@ class ViewAllTransaction : AppCompatActivity() {
             finish()
             return
         }
+        val btnBackBtn = findViewById<ImageView>(R.id.transactionBackBtn)
+        btnBackBtn.setOnClickListener {
+            finish()
+        }
 
         transactionViewModel = ViewModelProvider(this, factory)[TransactionViewModel::class.java]
         transRecyclerView = findViewById(R.id.transactionsRecyclerView)
@@ -88,30 +97,84 @@ class ViewAllTransaction : AppCompatActivity() {
             }
         }
 
-        val btnSort = findViewById<Button>(R.id.sortButton)
-        btnSort.setOnClickListener {
-            val startDateStr = findViewById<EditText>(R.id.startDate).text.toString()
-            val endDateStr = findViewById<EditText>(R.id.endDate).text.toString()
+        val btnViewAllTransaction = findViewById<Button>(R.id.btnViewAllTransations)
+        btnViewAllTransaction.setOnClickListener {
+            transactionViewModel.getAllTransactions().observe(this) { transactions ->
+                if (transactions != null) {
+                    // Apply business logic - sort by date (newest first)
+                    val sortedTransactions = transactionViewModel.sortTransactionsByDate(transactions)
 
-            if (startDateStr.isEmpty() || endDateStr.isEmpty()) {
-                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_LONG).show()
-                return@setOnClickListener
-            }
-
-            val format = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-            format.isLenient = false
-
-            try {
-                val startDate = format.parse(startDateStr)
-                val endDate = format.parse(endDateStr)
-
-                if (startDate != null && endDate != null) {
-                    // Validate date range
-                    if (startDate.after(endDate)) {
-                        Toast.makeText(this, "Start date cannot be after end date", Toast.LENGTH_LONG).show()
-                        return@setOnClickListener
+                    // Setup adapter with click listener
+                    transactionAdapter = TransactionAdapter(sortedTransactions) { transaction ->
+                        val intent = Intent(this, TransactionDetails::class.java)
+                        intent.putExtra("TRANSACTION_ID", transaction.transactionID)
+                        startActivity(intent)
                     }
+                    transRecyclerView.adapter = transactionAdapter
 
+                    // Show empty state if no transactions
+                    if (transactions.isEmpty()) {
+                        Toast.makeText(this, "No transactions found", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(this, "Failed to load transactions", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+
+        val btnSort = findViewById<Button>(R.id.sortButton)
+        val sDate = findViewById<DatePicker>(R.id.startDatePicker)
+        val eDate = findViewById<DatePicker>(R.id.endDatePicker)
+
+        val startDateStr = findViewById<EditText>(R.id.startDate)
+        val endDateStr = findViewById<EditText>(R.id.endDate)
+
+        startDateStr.setOnClickListener{
+            sDate.visibility = android.view.View.VISIBLE
+            eDate.visibility = android.view.View.GONE
+        }
+        endDateStr.setOnClickListener{
+            sDate.visibility = android.view.View.GONE
+            eDate.visibility = android.view.View.VISIBLE
+        }
+        sDate.setOnDateChangedListener {_,year,month,dayOfMonth ->
+            val selectedDate = "${month+1}/$dayOfMonth/$year"
+            startDateStr.setText(selectedDate)
+        }
+        eDate.setOnDateChangedListener {_,year,month,dayOfMonth ->
+            val selectedDate = "${month+1}/$dayOfMonth/$year"
+            endDateStr.setText(selectedDate)
+        }
+        btnSort.setOnClickListener {
+
+            val startYear = sDate.year
+            val startMonth = sDate.month
+            val startDay = sDate.dayOfMonth
+            val startDate = getDatePicker(startYear,startMonth,startDay)
+
+            val endYear = eDate.year
+            val endMonth = eDate.month
+            val endDay = eDate.dayOfMonth
+            val endDate = getDatePicker(endYear,endMonth,endDay)
+
+            eDate.visibility = View.GONE
+            sDate.visibility = View.GONE
+            startDateStr.setText("")
+            endDateStr.setText("")
+//            val format = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+//            format.isLenient = false
+//
+//            try {
+//                val startDate = format.parse(startDateStr)
+//                val endDate = format.parse(endDateStr)
+//
+//                if (startDate != null && endDate != null) {
+//                    // Validate date range
+//                    if (startDate.after(endDate)) {
+//                        Toast.makeText(this, "Start date cannot be after end date", Toast.LENGTH_LONG).show()
+//                        return@setOnClickListener
+//                    }
+                if(startDate <= endDate) {
                     // Observe filtered transactions
                     transactionViewModel.getTransactionsBetweenDates(startDate, endDate)
                         .observe(this) { filteredTransactions ->
@@ -121,39 +184,57 @@ class ViewAllTransaction : AppCompatActivity() {
                                     transactionViewModel.sortTransactionsByDate(filteredTransactions)
 
                                 // Update adapter with filtered results
-                                transactionAdapter = TransactionAdapter(sortedFilteredTransactions) { transaction ->
-                                    val intent = Intent(this, TransactionDetails::class.java)
-                                    intent.putExtra("TRANSACTION_ID", transaction.transactionID)
-                                    startActivity(intent)
-                                }
+                                transactionAdapter =
+                                    TransactionAdapter(sortedFilteredTransactions) { transaction ->
+                                        val intent = Intent(this, TransactionDetails::class.java)
+                                        intent.putExtra("TRANSACTION_ID", transaction.transactionID)
+                                        startActivity(intent)
+                                    }
                                 transRecyclerView.adapter = transactionAdapter
 
                                 // Show result count
-                                val resultCount = filteredTransactions.size
-                                Toast.makeText(
-                                    this,
-                                    "Found $resultCount transactions",
-                                    Toast.LENGTH_SHORT
-                                ).show()
+//                                val resultCount = filteredTransactions.size
+//                                Toast.makeText(
+//                                    this,
+//                                    "Found $resultCount transactions",
+//                                    Toast.LENGTH_SHORT
+//                                ).show()
 
                                 // Calculate and display total amount for filtered transactions
-                                val totalAmount = transactionViewModel.calculateTotalAmount(filteredTransactions)
+                                val totalAmount =
+                                    transactionViewModel.calculateTotalAmount(filteredTransactions)
                                 // You can display this in a TextView if needed
                                 // totalAmountTextView.text = "Total: $totalAmount"
 
                             } else {
-                                Toast.makeText(this, "No transactions found for selected dates", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    this,
+                                    "No transactions found for selected dates",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                         }
-                } else {
-                    Toast.makeText(this, "Invalid date format", Toast.LENGTH_LONG).show()
+
+                }else{
+                    Toast.makeText(this,"Start date cannot be after end date",Toast.LENGTH_LONG).show()
                 }
-            } catch (e: Exception) {
-                Toast.makeText(this, "Invalid date format. Please use dd/MM/yyyy", Toast.LENGTH_LONG).show()
-            }
+//                } else {
+//                    Toast.makeText(this, "Invalid date format", Toast.LENGTH_LONG).show()
+//                }
+//            } catch (e: Exception) {
+//                Toast.makeText(this, "Invalid date format. Please use dd/MM/yyyy", Toast.LENGTH_LONG).show()
+//            }
         }
 
 
+
+    }
+    fun getDatePicker(year: Int, month: Int, day: Int): Date {
+        val caledar = Calendar.getInstance()
+        caledar.set(Calendar.YEAR,year)
+        caledar.set(Calendar.MONTH,month)
+        caledar.set(Calendar.DAY_OF_MONTH,day)
+        return caledar.time
 
     }
 }

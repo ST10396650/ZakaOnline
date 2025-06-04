@@ -16,6 +16,7 @@
         android:padding="16dp">
 
         <ImageView
+            android:id="@+id/transactionBackBtn"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="Back"
@@ -52,6 +53,9 @@
             android:clickable="true"
             android:inputType="none"
             />
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="0dp"/>
 
         <EditText
             android:id="@+id/endDate"
@@ -89,6 +93,21 @@
             android:textColor="#888888"
             android:textSize="12sp" />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <DatePicker
+            android:id="@+id/startDatePicker"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="wrap_content"/>
+        <DatePicker
+            android:id="@+id/endDatePicker"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 
     <Button
         android:id="@+id/sortButton"
@@ -99,6 +118,15 @@
         android:text="Sort Transactions"
         android:textColor="@color/zakaWhite"
         android:textStyle="bold" />
+    <Button
+        android:id="@+id/btnViewAllTransations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/zakaWhite"
+        android:textStyle="bold"
+        android:text="View All Transactions"
+        android:backgroundTint="@color/primaryColour2"
+        />
 
     <!-- (GeeksforGeeks, 2025) -->
     <!-- RecyclerView Placeholder -->

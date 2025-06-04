@@ -30,21 +30,25 @@
             android:exported="false" />
         <activity
             android:name=".Views.CategoryDetails"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".Views.ViewAllTransaction"
             android:exported="false" />
         <activity
             android:name=".Views.MilestoneActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".Views.AddTransaction"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".Views.CreateCategory"
             android:exported="false" />
         <activity
             android:name=".Views.AddAccountActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".Views.HowToGetStarted"
@@ -54,6 +58,7 @@
             android:exported="false" />
         <activity
             android:name=".Views.CreateAccount"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".Views.LoginActivity"

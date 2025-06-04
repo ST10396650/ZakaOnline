@@ -40,6 +40,12 @@
             android:orientation="horizontal"
             android:paddingBottom="16dp">
 
+            <ImageView
+                android:id="@+id/AddTransactionBackBtn"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Back"
+                android:src="@drawable/ic_back" />
 
             <!-- (Stack Overflow, 2025) -->
 

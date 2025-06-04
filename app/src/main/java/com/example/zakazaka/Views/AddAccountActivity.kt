@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -58,7 +59,14 @@ class AddAccountActivity : AppCompatActivity() {
 
         val sharedPref = getSharedPreferences("BudgetAppPrefs", MODE_PRIVATE)
         val userId = sharedPref.getString("LOGGED_USER_ID", null)
-
+        val backBtn = findViewById<ImageView>(R.id.addAccountBackBtn)
+        backBtn.setOnClickListener {
+            finish()
+        }
+        val cancelBtn = findViewById<Button>(R.id.cancelBtn)
+        cancelBtn.setOnClickListener {
+            finish()
+        }
         val btnSaveAcc = findViewById<Button>(R.id.btnSaveAcc)
         btnSaveAcc.setOnClickListener {
             val eAccountName = findViewById<EditText>(R.id.edAccountName).text.toString()
