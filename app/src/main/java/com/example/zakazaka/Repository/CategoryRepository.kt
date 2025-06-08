@@ -121,8 +121,14 @@ class CategoryRepository() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val categoryData = snapshot.value as? Map<String, Any>
                 if (categoryData != null) {
-                    val currentAmount = categoryData["currentAmount"] as? Double ?: 0.0
-                    val newAmount = currentAmount + additionalAmount
+                    val currentAmount = when (val current = categoryData["currentAmount"]) {
+                        is Double -> current
+                        is Long -> current.toDouble()
+                        is String -> current.toDoubleOrNull() ?: 0.0
+                        else -> 0.0
+                    }
+                    
+                     val newAmount = currentAmount + additionalAmount
 
                     firebaseDatabase.child(userId).child(categoryId).child("currentAmount").setValue(newAmount)
                         .addOnCompleteListener { task ->
