@@ -9,7 +9,7 @@ real-time analytics, and gamified goal setting. Built as part of the PROG7313 pr
 - **Expense Tracking with receipt image uploads**
 - **Filtering transactions by date**
 - **Customizable Categories and Sub-categories**
-- **Financial Goals & Milestones with gamification**
+- **Financial Goals & Milestones**
 - **Multiple Financial Accounts**
 - **Analytics Bar Graph**
 
