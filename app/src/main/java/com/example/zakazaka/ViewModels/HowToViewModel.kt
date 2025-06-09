@@ -29,7 +29,7 @@ class HowToViewModel() : ViewModel() {
         lifecycleOwner: LifecycleOwner,
         callback: (Boolean) -> Unit
     ) {
-        // Use coroutines to avoid callback hell
+        // Use coroutines to avoid callback chaos
         var accountComplete = false
         var categoryComplete = false
         var budgetComplete = false

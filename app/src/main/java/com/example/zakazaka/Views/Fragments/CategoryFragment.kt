@@ -41,10 +41,8 @@ class CategoryFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_category, container, false)
-
-
-        val txtCategoryNav = view.findViewById<TextView>(R.id.createCategory)
-        txtCategoryNav.setOnClickListener {
+        val createCategoryButton = view.findViewById<TextView>(R.id.btnCreateCategory)
+        createCategoryButton.setOnClickListener {
             val intent = Intent(requireContext(), CreateCategory::class.java)
             startActivity(intent)
         }

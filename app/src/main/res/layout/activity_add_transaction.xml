@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
+
     android:padding="16dp">
     <!-- (Android Developers, 2025) -->
     <LinearLayout
@@ -69,6 +70,7 @@
         <Spinner
             android:id="@+id/sAccountName"
             android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
             />
 
@@ -123,13 +125,15 @@
                 android:layout_height="50dp"
                 android:text="Date of Transaction"
                 android:backgroundTint="@color/primaryColour"/>
-            <DatePicker
-                android:id="@+id/startDatePicker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                />
+
         </LinearLayout>
+        <DatePicker
+            android:id="@+id/startDatePicker"
+            android:layout_width="wrap_content"
+            android:calendarTextColor="@color/white"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            />
         <EditText
             android:id="@+id/dateOfTransaction"
             android:layout_width="match_parent"
@@ -154,13 +158,14 @@
                 android:layout_height="50dp"
                 android:text="End Date of Transaction"
                 android:backgroundTint="@color/primaryColour"/>
-            <DatePicker
-                android:id="@+id/endDateDatePicker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                />
+
         </LinearLayout>
+        <DatePicker
+            android:id="@+id/endDateDatePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            />
         <EditText
             android:id="@+id/dEndDate"
             android:layout_width="match_parent"
@@ -222,7 +227,6 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
 
-        <!-- Create Category Button -->
 
     </LinearLayout>
 </ScrollView>

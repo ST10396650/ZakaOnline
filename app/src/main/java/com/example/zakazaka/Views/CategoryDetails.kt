@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
@@ -31,6 +32,8 @@ import com.example.zakazaka.ViewModels.TransactionViewModel
 import com.example.zakazaka.ViewModels.ViewModelFactory
 import java.util.Locale
 import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Date
 
 class CategoryDetails : AppCompatActivity() {
     lateinit var subCategoryRecyclerView : RecyclerView
@@ -138,35 +141,71 @@ class CategoryDetails : AppCompatActivity() {
 
         var outputText :String = ""
         var categoryAmt :Double = 0.0
+        val startDate = findViewById<EditText>(R.id.edStart)
+        val endDate = findViewById<EditText>(R.id.edEnd)
+        val datePickerStart = findViewById<DatePicker>(R.id.expStartDate)
+        val datePickerEnd = findViewById<DatePicker>(R.id.expEndDate)
+
+        startDate.setOnClickListener {
+            datePickerStart.visibility = View.VISIBLE
+            datePickerEnd.visibility = View.GONE
+        }
+        endDate.setOnClickListener {
+            datePickerStart.visibility = View.GONE
+            datePickerEnd.visibility = View.VISIBLE
+        }
+        val startYear = datePickerStart.year
+        val startMonth = datePickerStart.month
+        val startDay = datePickerStart.dayOfMonth
+
+
+        val endYear = datePickerEnd.year
+        val endMonth = datePickerEnd.month
+        val endDay = datePickerEnd.dayOfMonth
+
+        val backBtn = findViewById<Button>(R.id.expSummBackBtn)
+        backBtn.setOnClickListener {
+            finish()
+        }
+        datePickerStart.setOnDateChangedListener { _, year, monthOfYear, dayOfMonth ->
+            val selectedDate = "$dayOfMonth/${monthOfYear + 1}/$year"
+            startDate.setText(selectedDate)
+        }
+        datePickerEnd.setOnDateChangedListener { _, year, monthOfYear, dayOfMonth ->
+            val selectedDate = "$dayOfMonth/${monthOfYear + 1}/$year"
+            endDate.setText(selectedDate)
+        }
+
+
         val btnCheckAmtBetweenDates = findViewById<Button>(R.id.btnCheckAmtBetweenDates)
         btnCheckAmtBetweenDates.setOnClickListener {
             findViewById<TextView>(R.id.txtOutput).visibility = View.VISIBLE
-            val startDate = findViewById<EditText>(R.id.edStart).text.toString()
-            val endDate = findViewById<EditText>(R.id.edEnd).text.toString()
-            if(startDate.isEmpty() || endDate.isEmpty()){
-                Toast.makeText(this,"Please fill in all fields", Toast.LENGTH_LONG).show()
-            }else{
-                val format = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-                format.isLenient = false
-                try{
-                    val start = format.parse(startDate)
-                    val end = format.parse(endDate)
-                    if(start != null && end != null) {
+            val selectedStartDate = getDatePicker(datePickerStart.year,datePickerStart.month,datePickerStart.dayOfMonth)
+            val selectedEndDate = getDatePicker(datePickerEnd.year,datePickerEnd.month,datePickerEnd.dayOfMonth)
+            var subcats : List<String>? = null
+                    if(startDate.text.isNotEmpty() && endDate.text.isNotEmpty()){
                         // Get subcategories for this category
                         subCategoryViewModel.getSubCategoriesForCategory(categoryID).observe(this){subcategories ->
-                            val subcats = subcategories.map{it.subCategoryID}
+                            if(!subcategories.isNullOrEmpty())
+                                subcats = subcategories.map{it.subCategoryID}
                             // Get transactions between dates
-                            transactionViewMode.getTransactionsBetweenDates(start, end).observe(this){transactions->
-                                val filteredTrans = transactions.filter { it.subCategoryID in subcats }
-                                categoryAmt = filteredTrans.sumOf { it.amount }
-                                findViewById<TextView>(R.id.txtOutput).text = "You've spent R${categoryAmt} in this category"
+                            transactionViewMode.getTransactionsBetweenDates(selectedStartDate, selectedEndDate).observe(this){transactions->
+                                if(transactions != null && subcats != null) {
+                                    val filteredTrans = transactions.filter { it.subCategoryID in subcats!! }
+                                    categoryAmt = filteredTrans.sumOf { it.amount }
+                                    findViewById<TextView>(R.id.txtOutput).text = "You've spent R${categoryAmt} in this category"
+                                }
                             }
                         }
                     }
-                }catch(e:Exception){
-                    Toast.makeText(this,"Please enter correct date format: dd/MM/yyyy",Toast.LENGTH_LONG).show()
-                }
-            }
         }
+    }
+    fun getDatePicker(year: Int, month: Int, day: Int): Date {
+        val caledar = Calendar.getInstance()
+        caledar.set(Calendar.YEAR,year)
+        caledar.set(Calendar.MONTH,month)
+        caledar.set(Calendar.DAY_OF_MONTH,day)
+        return caledar.time
+
     }
 }

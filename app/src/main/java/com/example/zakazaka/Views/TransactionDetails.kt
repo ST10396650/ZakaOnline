@@ -52,6 +52,11 @@ class TransactionDetails : AppCompatActivity() {
         subCategoryViewModel = ViewModelProvider(this,factory)[SubCategoryViewModel::class.java]
         categoryViewModel = ViewModelProvider(this,factory)[CategoryViewModel::class.java]
 
+        val backBtn = findViewById<ImageView>(R.id.backArrow)
+        backBtn.setOnClickListener {
+            finish()
+        }
+
         // Load transaction details
         loadTransactionDetails(transactionId)
 

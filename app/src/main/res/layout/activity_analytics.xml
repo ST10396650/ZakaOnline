@@ -1,29 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:com.github.PhilJay.MPAndroidChart="http://schemas.android.com/tools"
     android:background="@drawable/bg_gradient_green">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:padding="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <!-- Header -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:elevation="4dp"
             android:padding="16dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:contentDescription="Back"
-                android:src="@drawable/ic_back" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -34,8 +27,18 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </RelativeLayout>
+        <!-- Download PDF Button -->
+        <Button
+            android:id="@+id/btnDownloadPdf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/primaryColour2"
+            android:text="Download PDF"
+            android:textColor="@android:color/white" />
 
-        <!-- Toggle View Buttons -->
+        <!-- View Toggle Buttons
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,10 +57,6 @@
                 android:textColor="@color/zakaDarkGreen"
                 android:textStyle="bold" />
 
-            <Space
-                android:layout_width="8dp"
-                android:layout_height="wrap_content" />
-
             <Button
                 android:id="@+id/btnListView"
                 android:layout_width="0dp"
@@ -67,8 +66,9 @@
                 android:drawableTop="@drawable/ic_list"
                 android:background="@drawable/btn_selected"
                 android:textColor="@android:color/white"
-                android:textStyle="bold" />
-        </LinearLayout>
+                android:textStyle="bold"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>-->
 
         <!-- Date Picker Filter -->
         <LinearLayout
@@ -79,14 +79,14 @@
             android:layout_marginTop="16dp">
 
             <EditText
-                android:id="@+id/startDate"
+                android:id="@+id/startDateText"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:hint="Start Date"
                 android:background="@drawable/edittext_bg"
                 android:padding="12dp"
-                android:textColor="#000"
+                android:textColor="@color/zakaDarkGreen"
                 android:focusable="false"
                 android:clickable="true"
                 android:inputType="none" />
@@ -94,33 +94,124 @@
             <Space
                 android:layout_width="8dp"
                 android:layout_height="wrap_content" />
-
             <EditText
-                android:id="@+id/endDate"
+                android:id="@+id/endDateText"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:hint="End Date"
                 android:background="@drawable/edittext_bg"
                 android:padding="12dp"
-                android:textColor="#000"
+                android:textColor="@color/zakaDarkGreen"
                 android:focusable="false"
                 android:clickable="true"
                 android:inputType="none" />
+
+
         </LinearLayout>
 
-        <!-- Summary Heading -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <DatePicker
+                android:id="@+id/startDate"
+                android:layout_width="80dp"
+                android:layout_height="280dp"
+                android:layout_weight="1"
+                android:calendarTextColor="@color/zakaDarkGreen"
+                android:visibility="gone" />
+
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="wrap_content" />
+
+            <DatePicker
+                android:id="@+id/endDate"
+                android:layout_width="80dp"
+                android:layout_height="280dp"
+                android:layout_weight="1"
+                android:calendarTextColor="@color/zakaDarkGreen"
+                android:forceHasOverlappingRendering="true"
+                android:visibility="gone" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnApplyFilter"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/zakaDarkGreen"
+                android:text="Apply Filters" />
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="0dp"/>
+
+            <Button
+                android:id="@+id/btnReset"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/primaryColour"
+                android:text="Reset" />
+
+        </LinearLayout>
+
+        <!-- Toggle Buttons
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="12dp">
+
+            <ToggleButton
+                android:id="@+id/toggleMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textOn="Main"
+                android:textOff="Main"
+                android:checked="true"
+                android:backgroundTint="@color/zakaDarkGreen"
+                android:textColor="@android:color/white" />
+
+            <Space android:layout_width="8dp" android:layout_height="wrap_content" />
+
+            <ToggleButton
+                android:id="@+id/toggleSub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textOn="Sub"
+                android:textOff="Sub"
+                android:backgroundTint="@color/accentColour2"
+                android:textColor="@android:color/black" />
+        </LinearLayout>-->
+        <!--There needs to be a bar graph here-->
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChart"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
+
+
+        <!-- Budget View Title -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="View of Home Budget: Sep 25 - Oct 25"
+            android:text="Graphical View of Home Budget\nSep 25 - Oct 25"
             android:textAlignment="center"
-            android:textColor="#AA8800"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            android:textSize="14sp" />
+            android:textColor="@color/primaryColour2"
+            android:textSize="14sp"
+            android:layout_marginTop="12dp" />
 
-        <!-- Summary Cards -->
+        <!-- Summary Category Boxes -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -128,97 +219,93 @@
             android:layout_marginTop="16dp"
             android:weightSum="3">
 
+            <!-- Box 1 -->
             <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@drawable/box_background"
-                android:padding="8dp">
+                android:background="@drawable/card_yellow_shadow"
+                android:padding="12dp"
+                android:layout_marginEnd="4dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Food"
-                    android:textStyle="bold" />
+                    android:text="Home"
+                    android:textStyle="bold"
+                    android:textColor="@color/zakaDarkGreen"
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="R450"
-                    android:textColor="#003300" />
+                    android:text="R500"
+                    android:textColor="@android:color/black" />
             </LinearLayout>
 
+            <!-- Box 2 -->
             <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@drawable/box_background"
-                android:padding="8dp"
-                android:layout_marginStart="4dp">
+                android:background="@drawable/card_yellow_shadow"
+                android:padding="12dp"
+                android:layout_marginHorizontal="4dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Leisure"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="@color/zakaDarkGreen" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="R180"
-                    android:textColor="#003300" />
+                    android:text="R300"
+                    android:textColor="@android:color/black" />
             </LinearLayout>
 
+            <!-- Box 3 -->
             <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@drawable/box_background"
-                android:padding="8dp"
+                android:background="@drawable/card_yellow_shadow"
+                android:padding="12dp"
                 android:layout_marginStart="4dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Transport"
-                    android:textStyle="bold" />
+                    android:text="Utilities"
+                    android:textStyle="bold"
+                    android:textColor="@color/zakaDarkGreen" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="R320"
-                    android:textColor="#003300" />
+                    android:text="R80"
+                    android:textColor="@android:color/black" />
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Recent Transactions Title -->
+        <!-- Transactions Section Title -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Recent Transactions"
+            android:text="Transactions: Sep 25 - Oct 25"
             android:textStyle="bold"
             android:textSize="16sp"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="20dp"
+            android:textColor="@color/zakaDarkGreen" />
 
-        <!-- RecyclerView for transaction list -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listTransactionRecycler"
+        <!-- Dynamic Transaction List -->
+        <LinearLayout
+            android:id="@+id/transactionList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:clipToPadding="false"
-            android:overScrollMode="never" />
-
-        <!-- Download PDF Button -->
-        <Button
-            android:id="@+id/btnDownloadPdf"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Download PDF"
-            android:background="@drawable/button_dark_green"
-            android:textColor="#FFF"
-            android:textStyle="bold"
-            android:layout_marginTop="12dp" />
-
+            android:orientation="vertical"
+            android:layout_marginTop="8dp" />
     </LinearLayout>
 </ScrollView>

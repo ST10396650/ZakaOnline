@@ -116,9 +116,10 @@
 
             <DatePicker
                 android:id="@+id/startDate"
-                android:layout_width="80dp"
-                android:layout_height="280dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/white"
                 android:calendarTextColor="@color/zakaDarkGreen"
                 android:visibility="gone" />
 
@@ -128,9 +129,10 @@
 
             <DatePicker
                 android:id="@+id/endDate"
-                android:layout_width="80dp"
-                android:layout_height="280dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/white"
                 android:calendarTextColor="@color/zakaDarkGreen"
                 android:forceHasOverlappingRendering="true"
                 android:visibility="gone" />
@@ -146,6 +148,7 @@
                 android:id="@+id/btnApplyFilter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:backgroundTint="@color/zakaDarkGreen"
                 android:text="Apply Filters" />
             <Space
@@ -154,6 +157,7 @@
 
             <Button
                 android:id="@+id/btnReset"
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/primaryColour"
@@ -161,7 +165,7 @@
 
         </LinearLayout>
 
-        <!-- Toggle Buttons -->
+        <!-- Toggle Buttons
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -189,7 +193,7 @@
                 android:textOff="Sub"
                 android:backgroundTint="@color/accentColour2"
                 android:textColor="@android:color/black" />
-        </LinearLayout>
+        </LinearLayout>-->
         <!--There needs to be a bar graph here-->
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/barChart"

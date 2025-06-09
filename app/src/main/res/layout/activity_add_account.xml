@@ -165,6 +165,7 @@
 
         <EditText
             android:id="@+id/edBankName"
+            android:focusable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter name of bank"
@@ -183,10 +184,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Type"
+            android:focusable="true"
             android:textColor="#DAA520" />
 
         <EditText
             android:id="@+id/edTypeOfAcc"
+            android:focusable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter type of account"

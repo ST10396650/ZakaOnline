@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -53,7 +54,10 @@ class MilestoneActivity : AppCompatActivity() {
             SubCategoryRepository(),
             TransactionRepository()
         )
-
+        val backBtn = findViewById<ImageView>(R.id.backArrow)
+        backBtn.setOnClickListener{
+            finish()
+        }
         val budgetGoalViewModel = ViewModelProvider(this, factory)[BudgetGoalViewModel::class.java]
         val month = LocalDate.now().month.getDisplayName(TextStyle.FULL, Locale.getDefault())
 

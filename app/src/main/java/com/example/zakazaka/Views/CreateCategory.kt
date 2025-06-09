@@ -29,6 +29,7 @@ import com.example.zakazaka.ViewModels.SubCategoryViewModel
 import com.example.zakazaka.ViewModels.ViewModelFactory
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
+import android.widget.ImageView
 
 
 class CreateCategory : AppCompatActivity() {
@@ -70,7 +71,10 @@ class CreateCategory : AppCompatActivity() {
 
         val btnCreateCategory = findViewById<Button>(R.id.btnCategory)
 
-
+        val backBtn = findViewById<ImageView>(R.id.backArrowbtn)
+        backBtn.setOnClickListener {
+            finish()
+        }
 
         //use the button click listener events to call the methods repsonsible for adding a new category
         btnCreateCategory.setOnClickListener {
@@ -111,15 +115,17 @@ class CreateCategory : AppCompatActivity() {
                         apply()
                     }
 
-//                    howtoViewModel.isHowtoCompleted(firebaseUserId!!) { completed ->
-//                        val intent = if (!completed) {
-//                            Intent(this, HowToGetStarted::class.java)
-//                        } else {
-//                            Intent(this, Dashboard::class.java)
-//                        }
-//                        intent.putExtra("USER_ID", firebaseUserId)
-//                        startActivity(intent)
-//                    }
+                    firebaseUserId?.let {
+                        howtoViewModel.isHowtoCompleted(it,this) { completed ->
+                            val intent = if (!completed) {
+                                Intent(this, HowToGetStarted::class.java)
+                            } else {
+                                Intent(this, Dashboard::class.java)
+                            }
+                            intent.putExtra("USER_ID", firebaseUserId)
+                            startActivity(intent)
+                        }
+                    }
                 } else {
                     Toast.makeText(this, "Failed to create category", Toast.LENGTH_SHORT).show()
                 }

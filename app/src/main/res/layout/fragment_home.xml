@@ -86,7 +86,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Minimum Budget                                                       Maximum"
+                android:text="Minimum Monthly Budget"
                 android:textSize="14sp"
                 android:textColor="#000000"
                 android:layout_gravity="center_horizontal"
@@ -96,6 +96,26 @@
             <ProgressBar
                 style="?android:attr/progressBarStyleHorizontal"
                 android:progress="50"
+                android:id="@+id/userProgressBar"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:progressDrawable="@drawable/rounded_progress_bar"
+                android:backgroundTint="#E6E6E6"
+                android:layout_marginBottom="16dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Maximum Monthly Budget"
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="4dp"
+                />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:progress="50"
+                android:id="@+id/userMaxProgressBar"
                 android:layout_width="match_parent"
                 android:layout_height="8dp"
                 android:progressDrawable="@drawable/rounded_progress_bar"

@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
@@ -64,7 +65,8 @@ class HomeFragment : Fragment() {
         //handles the recycler view for transactions showing the lastests 2 transactions
         recentTransactionRecyclerView = view.findViewById(R.id.recentTransactionRecyclerView)
         recentTransactionRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-
+        val minProgressbar = view.findViewById<ProgressBar>(R.id.userProgressBar)
+        val maxProgressbar = view.findViewById<ProgressBar>(R.id.userMaxProgressBar)
         // Only proceed if userId is not null
         userId?.let { uid ->
 //            // First, observe transactions for the RecyclerView (this can work independently)
@@ -77,13 +79,32 @@ class HomeFragment : Fragment() {
 //            }
 
             // First, observe transactions for the RecyclerView (this can work independently)
+            var totalAmount : Double = 0.0
+            var minBudget : Double = 0.0
+            var maxBudget : Double = 0.0
+
+
+            budgetGoalViewModel.getBudgetGoalsByUserId(userId).observe(viewLifecycleOwner) { budGoals ->
+                val lastBudgetGoal = budGoals.takeLast(1).firstOrNull()
+                if(lastBudgetGoal != null){
+                    minBudget = lastBudgetGoal.minAmount
+                    maxBudget = lastBudgetGoal.maxAmount
+                }
+            }
+
             transactionViewModel.getTransactionsByUserId(uid).observe(viewLifecycleOwner) { transactions ->
                 Log.d(TAG, "RecyclerView - Received ${transactions.size} transactions")
+
                 val latestTransactions = transactions.sortedByDescending { it.date }.take(3)
                 transactionAdpater = TransactionAdapter(latestTransactions) { transaction ->
                     Toast.makeText(requireContext(), "Clicked on ${transaction.description}", Toast.LENGTH_SHORT).show()
                 }
                 recentTransactionRecyclerView.adapter = transactionAdpater
+
+                //filling the progress bars
+                totalAmount = transactions.sumOf{it.amount}
+                minProgressbar.progress = (totalAmount/minBudget   * 100).toInt()
+                maxProgressbar.progress = (totalAmount/maxBudget * 100).toInt()
             }
 
             // Now observe budget goals and handle transactions inside this observer

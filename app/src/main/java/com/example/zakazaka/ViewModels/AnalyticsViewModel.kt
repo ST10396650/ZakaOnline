@@ -34,7 +34,7 @@ class AnalyticsViewModel @Inject constructor(
     lateinit var allSubCategories: MutableLiveData<List<SubCategoryEntity>>
     private val _graphData = MutableLiveData<List<TransactionEntity>>()
 
-
+    //filtering analytics data (filtering transactions by date)
     fun filterAnalyticsData(startDate: Date, endDate:Date, userId: String) :LiveData<List<AnalyticsModel>?> {
         // Implement logic to fetch and process analytics data based on date range
             val transactionLd = MutableLiveData<List<TransactionEntity>>()
@@ -104,6 +104,7 @@ class AnalyticsViewModel @Inject constructor(
 
         return result
     }
+    //fun to make it easier to process the analytics data,to prevent memory leaks
     fun processAnalyticsData(categories: List<CategoryEntity>, transactions: List<TransactionEntity>, userId: String): LiveData<List<AnalyticsModel>> {
         val resultLiveData = MediatorLiveData<List<AnalyticsModel>>()
         val combinedSubCategories = mutableListOf<SubCategoryEntity>()
@@ -122,7 +123,7 @@ class AnalyticsViewModel @Inject constructor(
                 respondedSources++
 
                 if (respondedSources == totalSources) {
-                    // --- Perform analytics calculation ---
+                    //  Perform the analytic calculation
                     val subCategoryToCategoryMap = combinedSubCategories.associate { it.subCategoryID to it.categoryID }
                     val categoryToNameMap = categories.associate { it.categoryID to it.name }
                     val categoryTotals = mutableMapOf<String, Double>()
@@ -151,17 +152,19 @@ class AnalyticsViewModel @Inject constructor(
 
         return resultLiveData
     }
+    //(GeeksforGeeks, 2022)
     fun downloadAnalyticsData(barGraph: BarChart, context: Context) {
+        //creating the pdf document
         val pdfDocument = PdfDocument()
         val pageInfo = PdfDocument.PageInfo.Builder(barGraph.width, barGraph.height, 1).create()
         val page = pdfDocument.startPage(pageInfo)
 
         barGraph.draw(page.canvas)
         pdfDocument.finishPage(page)
-
+        //creating unique name for file
         val timestamp = System.currentTimeMillis()
         val fileName = "Analytics_$timestamp.pdf"
-
+        //getting the file directory and saving it to the public storage
         val documentDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
         val file = File(documentDirectory, fileName)
         try{
@@ -178,3 +181,4 @@ class AnalyticsViewModel @Inject constructor(
         }
     }
 }
+//GeeksforGeeks (2022). How to Build PDF Downloader App in Android with Kotlin? [online] GeeksforGeeks. Available at: https://www.geeksforgeeks.org/how-to-build-pdf-downloader-app-in-android-with-kotlin/ [Accessed 7 Jun. 2025].

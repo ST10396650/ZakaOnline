@@ -55,27 +55,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-            <TextView
-                android:id="@+id/createCategory"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_edit_nav"
-                android:clickable="true"
-                tools:ignore="SpeakableTextPresentCheck" />
             <!-- Total Budget Text with Icon -->
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="25dp"
-
-
-                android:text="TOTAL BUDGET AMOUNT: R "
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:textColor="@color/zakaDarkGreen" />
-            <TextView
-                android:id="@+id/CreateCategorybtn"
+                android:id="@+id/btnCreateCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -84,17 +66,6 @@
                 android:padding="12dp"
                 android:text="Create Category"
                 android:textColor="@android:color/white"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/categoryDetailsbtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/button_light_yellow"
-                android:gravity="center"
-                android:padding="12dp"
-                android:text="View Category Details"
-                android:textColor="@color/primaryColour2"
                 android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>

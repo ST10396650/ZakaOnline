@@ -99,16 +99,17 @@
 
         <DatePicker
             android:id="@+id/startDatePicker"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:visibility="gone"
+            android:background="@color/white"
             android:layout_height="wrap_content"/>
         <DatePicker
             android:id="@+id/endDatePicker"
             android:layout_width="match_parent"
             android:visibility="gone"
+            android:background="@color/white"
             android:layout_height="wrap_content"/>
     </LinearLayout>
-
     <Button
         android:id="@+id/sortButton"
         android:layout_width="match_parent"

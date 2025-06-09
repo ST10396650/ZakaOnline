@@ -139,6 +139,8 @@
                 android:id="@+id/btnSaveSubCategory"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
+                android:textColor="@color/white"
+                android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:text="Save SubCategory"
                 android:backgroundTint="@color/primaryColour"
@@ -172,32 +174,56 @@
 
                 <EditText
                     android:id="@+id/edStart"
-                    android:layout_width="150dp"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:hint="Start Date (dd/MM/yyyy)"
                     android:minHeight="48dp"
-                    android:textSize="12sp"
-                    android:focusable="false"
-                    android:clickable="true" />
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:text="To"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="17dp"
+                    android:layout_marginLeft="17dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
                 <EditText
                     android:id="@+id/edEnd"
-                    android:layout_width="150dp"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:clickable="true"
-                    android:focusable="false"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:focusable="true"
                     android:hint="End Date (dd/MM/yyyy)"
                     android:minHeight="48dp"
-                    android:textSize="12sp" />
+                    android:textSize="13sp" />
 
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <DatePicker
+                    android:id="@+id/expStartDate"
+                    android:visibility="gone"
+                    android:background="@color/white"
+                    android:outlineSpotShadowColor="@color/zakaDarkGreen"
+                    android:calendarTextColor="@color/zakaDarkGreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+                <DatePicker
+                    android:id="@+id/expEndDate"
+                    android:visibility="gone"
+                    android:background="@color/white"
+                    android:calendarTextColor="@color/zakaDarkGreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
             </LinearLayout>
             <Button
                 android:id="@+id/btnCheckAmtBetweenDates"
@@ -226,6 +252,7 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/expSummBackBtn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
