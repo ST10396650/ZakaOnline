@@ -7,16 +7,29 @@ real-time analytics, and gamified goal setting. Built as part of the PROG7313 pr
 
 - **User Registration and Login**
 - **Expense Tracking with receipt image uploads**
+- **Filtering transactions by date**
 - **Customizable Categories and Sub-categories**
 - **Financial Goals & Milestones with gamification**
 - **Multiple Financial Accounts**
-- **Scheduled Monthly Payments**
-- **Transfers between Accounts or Categories**
+- **Analytics Bar Graph**
+
+## Unique Features
+- **Analytics Bar Graph PDF download**
+    This feature enables users to download a PDF report of their financial analytics. 
+- **How to get started tutorial**
+  - This feature is for new users, providing a step-by-step guide on how to use the app.
+  - The user will be presented with a check list of three steps they need to complete
+    - Account setup
+    - Budget Goal setup
+    - Category setup
+    
+
 
 
 ## 🖥️ User Interface Overview
 
 - Welcome, Login, and Registration screens
+- How to get started screen, which navigates the user to the main dashboard once tutorial is complete
 - Home dashboard with budget summaries and recent transactions
 - Category and Sub-category budget management
 - Transaction entry with filtering and receipt uploads
@@ -39,12 +52,9 @@ Android Developers. 2025. Save simple data with SharedPreferences, 10 February 2
 
 The IIE. 2025. Programming 3C/Oen Source Coding(Introduction) [PROG7313 Module Manual]. The Independent Institute of Education: Unpublished. (The IIE, 2025)
 
-Adhiguna, K. 2021. Kotlin room database (Version 1.0) [Source Code]. https://github.com/kevinadhiguna/kotlin-room-database/blob/master/app/src/main/java/com/example/kotlinroomdatabase/fragments/update/UpdateFragment.kt(Accessed 4 April 2025).
 
 Android Developer. 2025. LiveData overview, 10 February 2025. [Online]. Available at:https://developer.android.com/topic/libraries/architecture/livedata [Accessed 23 April 2025].
 
-
-Sinha, S. 2020. Storing Data Locally With Room Database and MVVM Architecture, 3 October 2020. [Online]. Available at: https://medium.com/swlh/storing-data-locally-with-room-database-and-mvvm-architecture-9a707fd16aee [Accessed 4 April 2025].
 
 Android Developers. (n.d.). Create dynamic lists with RecyclerView.(n.d.). [Online]. Available at: https://developer.android.com/develop/ui/views/layout/recyclerview. [Accessed May 2, 2025]
 
